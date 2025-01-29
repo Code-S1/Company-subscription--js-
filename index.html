@@ -328,7 +328,12 @@
   subscribeButton.addEventListener('submit', (event) => {
     event.preventDefault();
     enterEmail.textContent = theMessage.value.trim();
-    document.querySelector(".modal").showModal();
+    if (theMessage.value.includes('@') && theMessage.value.includes('.')) {
+      document.querySelector(".modal").showModal();
+    }
+    else {
+      document.querySelector('.valid_email').style.display = 'block';
+    }
   })
   let dismissButton = document.querySelector('.dismiss_button');
   dismissButton.addEventListener('click', () => {
